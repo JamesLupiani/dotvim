@@ -1,7 +1,6 @@
 set nocompatible
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 
 syntax on
 filetype plugin on
@@ -16,15 +15,11 @@ if has("win32")
 endif
 
 " Screen sizing
-if has("gui_running")
-    set lines=999 columns=999
-else
-    if exists("+lines")
-        set lines=50
-    endif
-    if exists("+columns")
-        set columns=100
-    endif
+if exists("+lines")
+    set lines=50
+endif
+if exists("+columns")
+    set columns=100
 endif
 
 set autoindent
