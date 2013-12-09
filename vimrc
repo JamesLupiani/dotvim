@@ -6,7 +6,8 @@ syntax on
 filetype plugin on
 filetype indent on
 
-color koehler
+set t_Co=256
+color molokai
 
 " Windows-only options
 if has("win32")
