@@ -10,3 +10,6 @@
 [submodule "bundle/vim-misc.git"]
 	path = bundle/vim-misc.git
 	url = https://github.com/xolox/vim-misc.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
