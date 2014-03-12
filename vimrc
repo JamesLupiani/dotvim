@@ -12,24 +12,16 @@ color molokai
 " Windows-only options
 if has("win32")
     set gfn=Consolas
-    set directory=.,$TEMP
-endif
-
-" Screen sizing
-if exists("+lines")
-    set lines=50
-endif
-if exists("+columns")
-    set columns=100
+"    set directory=.,$TEMP
 endif
 
 set autoindent
 set backspace=2 " backspace can delete previous chars
-"set expandtab
+set expandtab
 set number
-"set tabstop=4
-"set softtabstop=4
-"set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 
 set ofu=syntaxcomplete#Complete
 
@@ -37,4 +29,6 @@ set ofu=syntaxcomplete#Complete
 set foldenable
 set foldmethod=manual
 nnoremap <space> za " Space toggles fold
+
+let g:clang_library_path='/usr/local/lib'
 
