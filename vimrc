@@ -9,13 +9,24 @@ filetype indent on
 " Windows-only options
 if has("win32")
     set gfn=Consolas
-"    set directory=.,$TEMP
+    if has('gui_running')
+        color molokai
+    else
+        color koehler
+    endif
+    set directory=$TEMP
+    if exists("+lines")
+        set lines=50
+    endif
+    if exists("+columns")
+        set columns=100
+    endif
 else
-    set t_Co=256
+    color molokai
     let g:clang_library_path='/usr/local/lib'
 endif
 
-color molokai
+set t_Co=256
 set background=dark
 
 set autoindent
