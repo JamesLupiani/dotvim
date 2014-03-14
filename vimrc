@@ -30,7 +30,7 @@ set t_Co=256
 set background=dark
 
 set autoindent
-set backspace=2 " backspace can delete previous chars
+set backspace=indent,eol,start
 set expandtab
 set number
 set tabstop=4
