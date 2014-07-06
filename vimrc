@@ -6,6 +6,11 @@ syntax on
 filetype plugin on
 filetype indent on
 
+" Custom colors
+:autocmd ColorScheme * highlight LengthWarning ctermfg=yellow guifg=yellow
+:autocmd ColorScheme * highlight LengthError ctermfg=red guifg=red
+:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
 " Windows-only options
 if has("win32")
     set gfn=Consolas
@@ -37,13 +42,21 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-set ofu=syntaxcomplete#Complete
+" Make formatting apparent
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
-" Folding
-set foldenable
-set foldmethod=manual
-nnoremap <space> za " Space toggles fold
+" Highlight 81st col, and 101 and above really visible
+call matchadd('LengthWarning', '\%81v', 100)
+call matchadd('LengthError', '\%>101v.\+', -1)
+
+" Show trailing whitespace & spaces before tab, and tabs beyond the start of
+" the line
+match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+set ofu=syntaxcomplete#Complete
 
 "set laststatus=2
 "set statusline+=%{fugitive#statusline()}
 
+let g:syntastic_enable_signs = 1
